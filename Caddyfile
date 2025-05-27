@@ -1,0 +1,15 @@
+pb.otmar.pro {
+  reverse_proxy /api/* localhost:8090
+
+  header /api/* {
+    Access-Control-Allow-Origin  https://miapp.otmar.pro
+    Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+    Access-Control-Allow-Headers "Content-Type, Authorization"
+    Access-Control-Allow-Credentials true
+
+    @options {
+      method OPTIONS
+    }
+    respond @options 204
+  }
+}
